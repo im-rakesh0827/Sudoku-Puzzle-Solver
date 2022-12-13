@@ -1,0 +1,140 @@
+package SudokuGame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
+
+public class Registration extends JDialog {
+    private JPanel regPanel;
+    private JTextField tfEmail;
+    private JTextField tfName;
+    private JTextField tfPhone;
+    private JTextField tfUserID;
+    private JTextField tfAddress;
+    private JPasswordField pfPassword;
+    private JPasswordField pfConfirmPassword;
+    private JButton registerButton;
+    private JButton cancelButton;
+
+
+    public Registration(JFrame parent){
+       super(parent);
+       setTitle("Welcome To Registration Form");
+       setContentPane(regPanel);
+       setMinimumSize(new Dimension(850, 525));
+       setModal(true);
+       pack();
+       setLocationRelativeTo(parent);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+
+
+       registerButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               try {
+                   registerUser();
+               } catch (SQLException ex) {
+                   throw new RuntimeException(ex);
+               }
+           }
+       });
+       cancelButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               dispose();
+           }
+       });
+       setVisible(true);
+   }
+
+    public void registerUser() throws SQLException {
+        String name = tfName.getText();
+        String email = tfEmail.getText();
+        String phone = tfPhone.getText();
+        String userId = tfUserID.getText();
+        String address = tfAddress.getText();
+        String password = String.valueOf(pfPassword.getPassword());
+        String confirmPassword = String.valueOf(pfConfirmPassword.getPassword());
+
+        if(name.isEmpty() || email.isEmpty() || phone.isEmpty() || userId.isEmpty() || address.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please Enter All Fields : ",
+                    "Try Again!",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        if(!password.equals(confirmPassword)){
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Confirm Password Doesn't Match : ",
+                    "Try Again !",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+        user = addUserToDatabase(name, email, phone, userId, address, password);
+        if(user!=null){
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Failed to register new user : ",
+                    "Try Again !",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+        return;
+    }
+    public User user;
+
+    private User addUserToDatabase(String name, String email, String phone, String userId, String address, String password) throws SQLException {
+
+        final String DB_URL = "jdbc:mysql://localhost:3306/userdb";
+        final String USERNAME = "root";
+        final String PASSWORD = "Apple@0827";
+
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Statement statement = connection.createStatement();
+            String sql = "insert into sudokuPlayer(name, email, phone, userId, address, password)"+ "values(?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, phone);
+            preparedStatement.setString(4, userId);
+            preparedStatement.setString(5, address);
+            preparedStatement.setString(6, password);
+
+
+            int addedRows = preparedStatement.executeUpdate();
+            if(addedRows>0){
+                user = new User();
+                user.name = name;
+                user.email = email;
+                user.phone = phone;
+                user.userId = userId;
+                user.address = address;
+                user.password = password;
+            }
+            statement.close();
+            connection.close();
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+    }
+
+    public static void main(String[] args) {
+        Registration myForm = new Registration(null);
+        User user = myForm.user;
+        if(user!=null) System.out.println("Successfully Registered : "+user.name);
+        else System.out.println("Registration Failed : ");
+    }
+}
