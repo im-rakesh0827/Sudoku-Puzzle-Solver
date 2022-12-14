@@ -12,9 +12,6 @@ public class UserForm extends JDialog{
     private JButton registerButton;
     private JButton loginButton;
     private JPanel userFormPanel;
-    private JButton sudokuButton;
-    private JButton ticTacToeButton;
-
     public UserForm(JFrame parent){
         super(parent);
         setTitle("User Register/Login Form");
@@ -45,6 +42,7 @@ public class UserForm extends JDialog{
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 Registration reg = new Registration(null);
                 User user = reg.user;
                 if(user!=null) System.out.println("Successfully Registered : "+user.name);
@@ -52,12 +50,6 @@ public class UserForm extends JDialog{
             }
         });
         setVisible(true);
-        sudokuButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SudokuFrame sudokuFrame = new SudokuFrame(null);
-            }
-        });
     }
 
     public User user;
@@ -70,7 +62,7 @@ public class UserForm extends JDialog{
         try {
             Connection connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             Statement statement  = connection.createStatement();
-            String sql = "select * from sudokuPlayer where email=? and password=?";
+            String sql = "select * from players where email=? and password=?";
             PreparedStatement prepareStatement = connection.prepareStatement(sql);
             prepareStatement.setString(1, email);
             prepareStatement.setString(2, password);
@@ -82,6 +74,7 @@ public class UserForm extends JDialog{
                 user.email = resultSet.getString("email");
                 user.phone = resultSet.getString("phone");
                 user.userId = resultSet.getString("userId");
+                user.game = resultSet.getString("game");
                 user.address = resultSet.getString("address");
                 user.password = resultSet.getString("password");
             }
@@ -93,16 +86,24 @@ public class UserForm extends JDialog{
         return user;
     }
 
+
+
+
+
+
+
     public static void main(String[] args) {
         UserForm userForm = new UserForm(null);
         User user = userForm.user;
         if(user!=null){
             System.out.println("Authentication Successful : "+user.name);
             System.out.println("User's Details : ");
+            System.out.println("Name : "+user.name);
             System.out.println("Email : "+user.email);
             System.out.println("Phone : "+user.phone);
             System.out.println("UserId : "+user.userId);
-            System.out.println("Address "+user.address);
+            System.out.println("Game Name : "+user.game);
+            System.out.println("Address  : "+user.address);
         }else{
             System.out.println("Authentication Cancelled !");
         }

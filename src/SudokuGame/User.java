@@ -5,9 +5,7 @@ public class User {
     public String email;
     public String phone;
     public String userId;
+    public String game;
     public String address;
     public String password;
-
-
-
 }
