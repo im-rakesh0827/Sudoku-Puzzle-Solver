@@ -110,7 +110,7 @@ public class Registration extends JDialog {
         try {
             connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             statement = connection.createStatement();
-            query = "insert into players(name, email, phone, userId, game, address, password)"+ "values(?, ?, ?, ?, ?, ?, ?)";
+            query = "insert into players(name, email, phone, userId, game, address, password)"+"values(?, ?, ?, ?, ?, ?, ?)";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, email);

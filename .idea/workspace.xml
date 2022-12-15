@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ded59e40-4b1e-4baf-939b-85751371cdf6" name="Changes" comment="Initial Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SudokuPuzzle-Advance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SudokuPuzzle-Advance.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/Registration.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/Registration.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SudokuGame/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/UserForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/UserForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/UserForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
