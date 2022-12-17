@@ -32,7 +32,6 @@ public class Registration extends JDialog {
        setContentPane(regPanel);
        setMinimumSize(new Dimension(850, 525));
        setModal(true);
-       pack();
        setLocationRelativeTo(parent);
 //        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -77,7 +76,6 @@ public class Registration extends JDialog {
             );
             return;
         }
-
         if(!password.equals(confirmPassword)){
             JOptionPane.showMessageDialog(
                     this,
@@ -100,6 +98,9 @@ public class Registration extends JDialog {
         }
         return;
     }
+
+
+
     public User user;
 
     private User addUserToDatabase(String name, String email, String phone, String userId, String game, String address, String password) throws SQLException {
@@ -119,7 +120,6 @@ public class Registration extends JDialog {
             preparedStatement.setString(5, game);
             preparedStatement.setString(6, address);
             preparedStatement.setString(7, password);
-
 
             int addedRows = preparedStatement.executeUpdate();
             if(addedRows>0){

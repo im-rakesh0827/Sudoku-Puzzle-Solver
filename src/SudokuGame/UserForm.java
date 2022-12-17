@@ -86,12 +86,6 @@ public class UserForm extends JDialog{
         return user;
     }
 
-
-
-
-
-
-
     public static void main(String[] args) {
         UserForm userForm = new UserForm(null);
         User user = userForm.user;
