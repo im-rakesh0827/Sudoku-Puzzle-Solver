@@ -5,13 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SudokuFrame extends JDialog {
+public class SudokuFrame extends JDialog implements ActionListener{
 
-    private JButton btnReset;
-    private JButton btnCheckMoves;
-    private JButton btnSolution;
-    private JButton btnUndo;
-    private JButton btnExit;
+    private JButton buttonReset;
+    private JButton buttonUndo;
+    private JButton buttonReDo;
+    private JButton buttonSolution;
+    private JButton buttonCheckMoves;
+    private JButton buttonExit;
     private JPanel sudokuPanel;
 
 //    All the button :
@@ -105,7 +106,6 @@ public class SudokuFrame extends JDialog {
     private JButton r8c6;
     private JButton r8c7;
     private JButton r8c8;
-    private JButton reDoButton;
 
 
     JButton predefinedBtn [] = {
@@ -134,7 +134,7 @@ public class SudokuFrame extends JDialog {
 
 
 
-    JButton btn [][] ={
+    JButton buttonArray [][] ={
             {r0c0, r0c1, r0c2, r0c3, r0c4, r0c5, r0c6, r0c7, r0c8},
             {r1c0, r1c1, r1c2, r1c3, r1c4, r1c5, r1c6, r1c7, r1c8},
             {r2c0, r2c1, r2c2, r2c3, r2c4, r2c5, r2c6, r2c7, r2c8},
@@ -146,7 +146,7 @@ public class SudokuFrame extends JDialog {
             {r8c0, r8c1, r8c2, r8c3, r8c4, r8c5, r8c6, r8c7, r8c8},
     };
 
-    private final String  solvedBoard [][] = {
+    private String  ansArray [][] = {
             {"2","9","8","5","1","6","7","3","4"},
             {"4","1","3","2","7","8","5","6","9"},
             {"7","5","6","3","4","9","1","2","8"},
@@ -164,7 +164,6 @@ public class SudokuFrame extends JDialog {
         setContentPane(sudokuPanel);
         setMinimumSize(new Dimension(800, 700));
         setModal(true);
-        pack();
         setLocationRelativeTo(parent);
 //        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -199,22 +198,25 @@ public class SudokuFrame extends JDialog {
 
         setVisible(true);
 
-        btnReset.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setBackground(Color.blue);
-            }
-        });
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource().equals(buttonSolution)){
+            for(int i=0; i<buttonArray.length; i++){
+                for(int j=0; j<ansArray.length; j++){
+//                    buttonArray[i][j]
+                }
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
 
         SudokuFrame sudokuFrame = new SudokuFrame(null);
 
     }
-
-
 }
 

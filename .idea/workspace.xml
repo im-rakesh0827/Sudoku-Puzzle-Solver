@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded59e40-4b1e-4baf-939b-85751371cdf6" name="Changes" comment="Initial Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/UserForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/UserForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SudokuGame/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/UserForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SudokuGame/SudokuFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/rakeshkumar/Developer/Project-Workspace/SudokuPuzzle-Advance&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/rakeshkumar/Developer/Project-Workspace/Sudoku-Puzzle&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -44,7 +44,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Registration">
+  <component name="RunManager" selected="Application.SudokuFrame">
     <configuration name="Registration" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SudokuGame.Registration" />
       <module name="SudokuPuzzle-Advance" />
@@ -86,8 +86,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Registration" />
         <item itemvalue="Application.SudokuFrame" />
+        <item itemvalue="Application.Registration" />
         <item itemvalue="Application.UserForm" />
       </list>
     </recent_temporary>
